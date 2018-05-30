@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app">
+		<div id="wrapper">
+			<div class="mainContent">
+				<div id="header">
+					<a href="#" id="clear" v-on:click="clearList">Clear list </a>
+					<a id="add" href="#" v-on:click="addTask"></a>
+				</div>
+				<input id="typeTodo" type="text" v-model="newTask" placeholder="start typing your todo">
+				<div id="todolist" v-for="(todo, index) in todoList">
+					<div class="listitem">
+						<input class="checkbox" type="checkbox" name="" @click="finishTask(index)">
+						<p :class="{finished:todo.finished}">{{todo.task}}</p>
+						<a href="#" v-on:click="removeTask(index)">X</a>
+					</div>
+				</div>
+				<!-- <div id="progress">
+					<p>0%</p>
+					<div id="proggressBar"></div>
+					<p>100%</p>
+				</div> -->
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script type="text/javascript" src="scripts/vendor.js"></script>
+	<script type="text/javascript" src="scripts/scripts.min.js"></script>
+</body>
+</html>
